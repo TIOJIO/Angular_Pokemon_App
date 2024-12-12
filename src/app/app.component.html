@@ -1,0 +1,48 @@
+<h1 class="center">welcom</h1>
+
+<div class="container">
+    <div class="row">
+        <div *ngFor="let pokemon of pokemonsList" class="col m4 s6">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img [src]="pokemon.picture" alt="">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                       <p>{{pokemon.name}}</p>
+                       <p><small>{{pokemon.created}}</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<input 
+   #input
+   (keyup.enter)="selectPokement(input.value)"
+   type="number" 
+/>
+<p *ngIf="pokemonSelected"> 
+    Vous avez selectionner  {{pokemonSelected?.name}}
+</p>
+
+
+<p *ngIf="!pokemonSelected"> 
+    Aucun pokemon a été trouver
+</p>
+
+<div *ngIf="pokemonSelected" class="card horizontal">
+    <div class="card-image">
+        <img [src]="pokemonSelected.picture" alt="">
+    </div>
+    <div class="card-stacked">
+        <div class="card-content">
+           <p>{{pokemonSelected.name}}</p>
+           <p><small>{{pokemonSelected.created}}</small></p>
+        </div>
+    </div>
+</div>
